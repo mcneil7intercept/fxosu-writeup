@@ -199,8 +199,18 @@ This is the final project poster that we used when demoing our project at the En
 % Are there any special hardware, OS, or runtime requirements to run your software?
 % Any user guides, API documentation, etc.
 \subsection{Overview}
+Our project took shape through 4 distinct phases: Research, Prototype, Implementation, and Test App. Our research phase took us through understanding fundamental Firefox paradigms like XPCOM and foundational concepts like IPC, JavaScript Runtime, and WebIDL. Our research phase stayed active throughout most of our Prototype and Implementation phases, as we learned new concepts that were necessary for us to accomplish the design we'd set out to build. When building our prototype, we learned a lot about what has to be built into the core of Firefox, as opposed to being tested in a priveleged JavaScript add-on. Implementation brought a lot of its' own challanges, smoothed over by the things learned during prototyping. And finally, our test app helped to highlight the strengths and weaknesses of the final implementation that we had come up with.
+\pagebreak
 
 \subsection{Structure}
+There are almost 4 million lines of code in Firefox, and our project barely scratches that surface. Here is the breakdown of the source code effected by our work.
+
+\begin{figure}[h!]
+  \centering
+		\includegraphics[scale=0.4]{codestructure.png}
+  \caption{Files and directories effected by our project.}
+\end{figure}
+\pagebreak
 
 \subsection{Building/Running from Source}
 
