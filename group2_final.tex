@@ -1,10 +1,16 @@
 \documentclass[12pt]{article}
 \usepackage[top=2in, bottom=1.5in, left=1in, right=1in]{geometry}
 \usepackage{pdfpages}
+\usepackage{fancyhdr}
 \usepackage{pgfplots}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{NETWORK RELIABILITY API FOR FIREFOX OS}
+\fancyfoot[CE,CO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
 
 \begin{document}
 \title{NETWORK RELIABILITY API FOR FIREFOX OS\\Improving Efficiency Through Analysis of Network Metadata}
@@ -169,6 +175,7 @@ Here is the final Gaant chart for how our project timeline actually turned out.
 \pagebreak
 
 \section{Weekly Team Blog Posts}
+% These should be formatted nicely and clearly distinct from one another.
 \input{blog_posts.tex}
 
 \section{Project Poster}
