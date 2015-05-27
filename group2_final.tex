@@ -1,10 +1,39 @@
 \documentclass[12pt]{article}
 \usepackage[top=2in, bottom=1.5in, left=1in, right=1in]{geometry}
 \usepackage{pdfpages}
+\usepackage{fancyhdr}
 \usepackage{pgfplots}
+\usepackage{hyperref}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
+\usepackage{listings}
+\lstdefinelanguage{diff}{
+  morecomment=[f][\color{blue}]{@@},     % group identifier
+  morecomment=[f][\color{red}]-,         % deleted lines 
+  morecomment=[f][\color{green}]+,       % added lines
+  morecomment=[f][\color{magenta}]{---}, % Diff header lines (must appear after +,-)
+  morecomment=[f][\color{magenta}]{+++},
+}
+\lstdefinelanguage{javascript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{NETWORK RELIABILITY API FOR FIREFOX OS}
+\fancyfoot[CE,CO]{\leftmark}
+\fancyfoot[LE,RO]{\thepage}
 
 \begin{document}
 \title{NETWORK RELIABILITY API FOR FIREFOX OS\\Improving Efficiency Through Analysis of Network Metadata}
@@ -33,6 +62,7 @@ The members of our team were John Zeller, Pok Yan Tjiam, and Jonathan McNeil. Jo
 The purpose of this project was to help work towards giving developers a tool that allows them to avoid the typical environment agnostic network request paradigm. As it currently stands, most developers create apps with little to no information about the quality of the network. In their apps, they typically run network requests in a dumb loop, which simply tries continually until the request succeeds. This is wasteful in terms of both battery and data, and overloads an often times already overloaded network.
 \\\\
 Firefox OS is not a direct competitor to the well known giants in the mobile OS space, but is aimed at being a good solution for the next 4 billion people coming online; the majority of which are coming online in developing countries where network infrastructure is literally decades behind, having a profoundly negative impact on user experience. In many cases poor network conditions can even render some applications non-functional. Aside from out-dated networks, some areas of these developing countries also have unreliable electrical grids, which can make charging a phone take days for many users living with the most unreliable grids. And this problem is only growing worse, at an ever growing pace. In the next 30 days, India alone is expected to account for 5 million new internet users.
+\pagebreak
 
 \section{Requirements Document}
 \subsection{Original}
@@ -161,6 +191,8 @@ Here is the final Gaant chart for how our project timeline actually turned out.
 	\includegraphics[scale=0.3]{finalgaant2.png}
   \caption{2 of 3: The final Gaant chart for how our project timeline actually turned out.}
 \end{figure}
+\pagebreak
+
 \begin{figure}[h!]
   \centering
 	\includegraphics[scale=0.3]{finalgaant3.png}
@@ -169,7 +201,9 @@ Here is the final Gaant chart for how our project timeline actually turned out.
 \pagebreak
 
 \section{Weekly Team Blog Posts}
+% These should be formatted nicely and clearly distinct from one another.
 \input{blog_posts.tex}
+\pagebreak
 
 \section{Project Poster}
 This is the final project poster that we used when demoing our project at the Engineering Expo.
@@ -178,63 +212,272 @@ This is the final project poster that we used when demoing our project at the En
 
 
 \section{Project Documentation}
-\begin{enumerate}
-    \item How does your project work?
-    	\subitem What is its structure?\\
-    	\subitem What is its Theory of Operation?\\
-    	\subitem Block and flow diagrams are good here. 
-    \item How does one install your software, if any?
-    \item How does one run it?
-    \item Are there any special hardware, OS, or runtime requirements to run your software?
-    \item Any user guides, API documentation, etc. 
-\end{enumerate}
+% How does your project work?
+% 	What is its structure?
+% 	What is its Theory of Operation?
+% 	Block and flow diagrams are good here. 
+% How does one install your software, if any?
+% How does one run it?
+% Are there any special hardware, OS, or runtime requirements to run your software?
+% Any user guides, API documentation, etc.
+\subsection{Overview}
+Our project took shape through 4 distinct phases: Research, Prototype, Implementation, and Test App. Our research phase took us through understanding fundamental Firefox paradigms like XPCOM and foundational concepts like IPC, JavaScript Runtime, and WebIDL. Our research phase stayed active throughout most of our Prototype and Implementation phases, as we learned new concepts that were necessary for us to accomplish the design we'd set out to build. When building our prototype, we learned a lot about what has to be built into the core of Firefox, as opposed to being tested in a priveleged JavaScript add-on. Implementation brought a lot of its' own challanges, smoothed over by the things learned during prototyping. And finally, our test app helped to highlight the strengths and weaknesses of the final implementation that we had come up with.
+\pagebreak
+
+\subsection{Structure}
+There are almost 4 million lines of code in Firefox, and our project barely scratches that surface. Here is the breakdown of the source code effected by our work.
+
+\begin{figure}[h!]
+  \centering
+		\includegraphics[scale=0.4]{codestructure.png}
+  \caption{Files and directories effected by our project.}
+\end{figure}
+\pagebreak
+
+\subsection{Source Code}
+Here is a description of each of the files used in our project.
+
+\subsubsection{b2g/installer/package-manifest.in}
+This file required modification to include references to our new XPCOM component. This is necessary when compiling Firefox OS; B2G (Boot 2 Gecko) contains the core which we continually refer to as Gecko.
+
+\subsubsection{browser/installer/package-manifest.in}
+This file required modification to include references to our new XPCOM component. This is necessary when compiling Firefox Desktop.
+
+\subsubsection{dom/apps/PermissionsTable.jsm}
+This file required modification to list the specific permissions given to the XPCOM component.
+
+\subsubsection{dom/fxosu/FxOSUService.js}
+This file holds the bulk of the work that we've done in this project.
+
+\subsubsection{dom/fxosu/FxOSUService.manifest}
+This file sets the uuid for our XPCOM component, so that Gecko can handle a unique reference to the location of the component. It also sets up a name for the XPCOM component, and registers the component to be run at app startup.
+
+\subsubsection{dom/fxosu/moz.build}
+This file lists references to the files need to compile our XPCOM component, and is used by subsequent moz.build files up the directory hierarchy, when Gecko is being built.
+
+\subsubsection{dom/NetworkStatsService.jsm}
+This file required modification to handle registering network request observers, as well as handling the IPC functionality needed to shuttle messages from the parent process to a child process, and back again if necessary.
+\\\\
+We setup observers for 'http-on-modify-request' and 'http-on-examine-response' events. An 'http-on-modify-request' event is called whenever an http request is made. Among other things, this event allows you to inspect request headers and to even add or modify new and existing headers before the request is sent. An 'http-on-examine-response' event is called whenever a response has been received from the web server. Similarly to an 'http-on-modify-request' event, this event allows you to inspect response headers, and to modify existing response headers as well.
+\\\\
+Once the event observers are setup and registered, we define new cases for the NetworkStatsService.jsm process' observe function to be capable of reacting to our new events. Upon receipt of an 'http-on-modify-request' event, the observe function will grab the request URI and record the current time, storing this data in an object. This object is then broadcast asynchronously, with the name "NetworkStatsService:Request", where our FxOSUService.js child process is listening to grab the message. Upon receipt of an 'http-on-examine-response' event, the observe function will grab the content length in bytes, the time of the response, the content type, the response URI, will check if the response was a cached response by calling the isNoCacheResponse() function on the response object, and finally will check if the request succeeded by checking the requestSucceeded attribute of the response object. Just like with the 'http-on-modify-request' event, all of this data is then stored in an object, and the object is then broadcast asynchronously, with the name "NetworkStatsService:Response", where our FxOSUService.js child process is listening to grab the message.
+\\\\
+Finally, when the 'xpcom-shutdown' event is received, the observe function will remove the observers that we setup for 'http-on-modify-request' and 'http-on-examine-response' events.
+
+\subsubsection{dom/webidl/FxOSUService.webidl}
+This file handles the defining of our exposed API. In it we define the interface that will be made accessible via the navigator object available in a js application running in a web context. We define 3 objects to help with the interface we have chosen to implement; SuccessRateObject, MemoryObject, and LatencyObject. The SuccessRateObject object holds 3 floats; rate, successes, and attempted, which records the success rate from 0 to 1 of network requests, the number of successful network requests, and the total number of attempted network requests all within an arbitrary time period, respectively. The MemoryObject object holds 2 floats; explicit and resident. Explicit shows the total size of explicit memory allocations, both at the operating system level (mmap, VirtualAlloc) and at the heap level (malloc(), calloc(), operator new). And Resident shows the resident size (RSS) of physical memory used. The LatencyObject object holds 23 floats, which we'll list and describe in a bullet point list:
+
+\begin{itemize}
+  \item \textbf{navigation\_type}: THING
+  \item \textbf{navigation\_redirectCount}: THING
+  \item \textbf{prep}: THING
+  \item \textbf{redirect}: THING
+  \item \textbf{unload}: THING
+  \item \textbf{r\_to\_f}: THING
+  \item \textbf{fetch}: THING
+  \item \textbf{dnslookup}: THING
+  \item \textbf{d\_to\_c}: THING
+  \item \textbf{connection}: THING
+  \item \textbf{c\_to\_req}: THING
+  \item \textbf{request}: THING
+  \item \textbf{response}: THING
+  \item \textbf{res\_to\_dom}: THING
+  \item \textbf{domLoading}: THING
+  \item \textbf{domInteractive}: THING
+  \item \textbf{domContentLoaded}: THING
+  \item \textbf{domComplete}: THING
+  \item \textbf{dom\_to\_onload}: THING
+  \item \textbf{loadEvent}: THING
+  \item \textbf{networkLatency}: THING
+  \item \textbf{pageLoadingTime}: THING
+  \item \textbf{totalTimeElapsed}: THING
+\end{itemize}
+
+Finally, the WebIDL sets up 12 API functions that can be called from a web context, attached to navigator:
+\begin{itemize}
+  \item \textbf{boolean batteryLevel()}: THING
+  \item \textbf{boolean batteryCharging()}: THING
+  \item \textbf{DOMRequest recentRxTx()}: THING
+  \item \textbf{float receivedBytes(optional float lastMillisecs)}: THING
+  \item \textbf{SuccessRateObject successRate(optional float lastMillisecs)}: THING
+  \item \textbf{LatencyObject latencyInfo()}: THING
+  \item \textbf{boolean isConnectionStable(optional float lastMillisecs)}: THING
+  \item \textbf{MemoryObject memoryManager();}: THING
+  \item \textbf{float connectionType()}: THING
+  \item \textbf{boolean connectionUp()}: THING
+  \item \textbf{float connectionQuality()}: THING
+  \item \textbf{boolean mozIsNowGood(optional float level)}: THING
+\end{itemize}
+
+\subsubsection{dom/webidl/moz.build}
+This file lists references to the WebIDL files need to compile all API interfaces used in Firefox, and is used by subsequent moz.build files up the directory hierarchy, when Gecko is being built.
+
+\subsubsection{dom/moz.build}
+This file lists references to interfaces and the directory names of all XPCOM components stored in the dom/ directory, and is used by subsequent moz.build files up the directory hierarchy, when Gecko is being built.
+
+\subsubsection{mobile/android/installer/package-manifest.in}
+This file required modification to include references to our new XPCOM component. This is necessary when compiling Firefox for Android.
+\pagebreak
+
+\subsection{Building/Running from Source}
+
+\subsection{API Documentation}
+
+\pagebreak
 
 \section{Learning New Technology}
+% What web sites were helpful? (Listed in order of helpfulness.)
+% What, if any, reference books really helped?
+% Were there any people on campus that were really helpful? 
+There were a number of websites that were helpful during the course of researching, designing, implementing and testing our project. Here is a list of the websites that we found most useful, organized from most to least helpful:
 \begin{enumerate}
-    \item What web sites were helpful? (Listed in order of helpfulness.)
-    \item What, if any, reference books really helped?
-    \item Were there any people on campus that were really helpful? 
+	\item Mozilla Developer Network (\href{https://developer.mozilla.org/en-US/}{https://developer.mozilla.org/en-US/})
+	\item Mozilla Wiki (\href{https://wiki.mozilla.org/}{https://wiki.mozilla.org/})
+	\item Boot2Gecko Mailing List (\href{https://groups.google.com/forum/\#!forum/mozilla.dev.b2g}{https://groups.google.com/forum/\#!forum/mozilla.dev.b2g})
+	\item Gaia Mailing List (\href{https://groups.google.com/forum/\#!forum/mozilla.dev.gaia}{https://groups.google.com/forum/\#!forum/mozilla.dev.gaia})
+	\item StackOverflow (\href{http://stackoverflow.com/}{http://stackoverflow.com/})
 \end{enumerate}
+
+And here are a list of webpages, within these websites that we found most useful, organized from most to least helpful:
+\begin{enumerate}
+	\item MDN XPCOM Interface Reference (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface}{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface})
+	\item MDN Observer Notifications (\href{https://developer.mozilla.org/en-US/docs/Observer_Notifications}{https://developer.mozilla.org/en-US/docs/Observer\_Notifications})
+	\item MDN XPCOM Reference for nsIMemoryReporterManager (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMemoryReporterManager}{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMemoryReporterManager})
+\end{enumerate}
+
+\noindent Other resources that we found really helpful included:
+\begin{enumerate}
+	\item IRC (irc.mozilla.org)
+		\subitem Find more info here: \href{https://wiki.mozilla.org/IRC}{https://wiki.mozilla.org/IRC}
+\end{enumerate}
+\pagebreak
 
 \section{What did we learn from all of this?}
 \subsection{John Zeller}
-\begin{enumerate}
-    \item What technical information did you learn?
-    \item What non-technical information did you learn?
-    \item What have you learned about project work?
-    \item What have you learned about project management?
-    \item What have you learned about working in teams?
-    \item If you could do it all over, what would you do differently? 
-\end{enumerate}
+\textbf{What technical information did you learn?}\\
+I learned a lot about JavaScript. When I first began working on this project, I came in with the urge to do and learn something outside of my comfort zone. I usually write in Python, and have primarily used Python in the 3 internships that I have had. So, writing JavaScript, and moreover, becoming aquanted with Firefox source code were both amazing learning experiences.
+\\\\
+Digging into the Firefox source code gave me a much better idea of how a browser is put together. Understanding the complexities of a relatively small part of Firefox, such as IPC, has given me a great insight into the complexity of this code base.
+\\\\
+\textbf{What non-technical information did you learn?}\\
+I learned more about the organization of teams within Mozilla, and the separation of efforts in one product, accross multiple teams. There really is a huge amount of institutional knowledge, and a lot of it has been written out in their wiki pages. I also learned that a lot of those wiki pages are out of date, and need some love.
+\\\\
+\textbf{What have you learned about project work?}\\
+I learned a lot about the importance of a design cycle such as Agile. Most of the senior design process is sort of intrinsically setup in a Waterfall design cycle, but you are free to iterate on that, running your own weekly, bi-weekly, monthly etc. Agile cycles. Our group in particular ran into this pretty hard, and we ended up changing 10 of our 24 requirements. When we originally wrote our requirements document during Fall term, we had an idea of what the project would look like, and not 4 weeks later, that idea changed significantly.
+\\\\
+\textbf{What have you learned about project management?}\\
+Other than the importance of design cycles, as I mentioned above, I learned about the importance of constant communication with your project customer. It's very possible that the ideas you have begun to spin within your own mind, and in the hive mind of the project group, could be wildly different, or even slightly misaligned from that of the project customer, and the much larger hive mind of your customers organization.
+\\\\
+\textbf{What have you learned about working in teams?}\\
+I've certainly learned about the importance of communication throughout the project. Often we would run into issues where one or more of our group members were lost, while perhaps at least one knew the way forward. Clear communication and clearing up questions is something that produces a well oiled machine.
+\\\\
+\textbf{If you could do it all over, what would you do differently?}\\
+If I could do it all over again, I would spend significantly more time researching our project during October, before our requirements document was written. If we were able to have overcome many of the changes that we needed to make later on, this would have seriously increased the ease of implementation that we experienced throughout the project.
+\\
 
 \subsection{Pok Yan Tjiam}
-\begin{enumerate}
-    \item What technical information did you learn?
-    \item What non-technical information did you learn?
-    \item What have you learned about project work?
-    \item What have you learned about project management?
-    \item What have you learned about working in teams?
-    \item If you could do it all over, what would you do differently? 
-\end{enumerate}
+\textbf{What technical information did you learn?}\\
+\\\\
+\textbf{What non-technical information did you learn?}\\
+\\\\
+\textbf{What have you learned about project work?}\\
+\\\\
+\textbf{What have you learned about project management?}\\
+\\\\
+\textbf{What have you learned about working in teams?}\\
+\\\\
+\textbf{If you could do it all over, what would you do differently?}\\
+\\
 
 \subsection{Jonathan McNeil}
-\begin{enumerate}
-    \item What technical information did you learn?
-    \item What non-technical information did you learn?
-    \item What have you learned about project work?
-    \item What have you learned about project management?
-    \item What have you learned about working in teams?
-    \item If you could do it all over, what would you do differently? 
-\end{enumerate}
+\textbf{What technical information did you learn?}\\
+\\\\
+\textbf{What non-technical information did you learn?}\\
+\\\\
+\textbf{What have you learned about project work?}\\
+\\\\
+\textbf{What have you learned about project management?}\\
+\\\\
+\textbf{What have you learned about working in teams?}\\
+\\\\
+\textbf{If you could do it all over, what would you do differently?}\\
+\pagebreak
 
 \section{Appendix I}
-\begin{enumerate}
-	\item Essential Code Listings. You don't have to include absolutely everything, but if someone wants to understand your project, there should be enough here to learn from. If you worked within a larger project, something like a patch file might be a good way to go. 
-\end{enumerate}
+% Essential Code Listings. You don't have to include absolutely everything, but if someone wants to understand your project, there should be enough here to learn from. If you worked within a larger project, something like a patch file might be a good way to go.
+\subsection{Source Code}
+
+\subsubsection{b2g/installer/package-manifest.in}
+\lstinputlisting[language=diff, breaklines=true]{diffs/b2g-installer-package-manifest.diff}
+\pagebreak
+
+\subsubsection{browser/installer/package-manifest.in}
+\lstinputlisting[language=diff, breaklines=true]{diffs/browser-installer-package-manifest.diff}
+\pagebreak
+
+\subsubsection{dom/apps/PermissionsTable.jsm}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-apps-PermissionsTable.diff}
+\pagebreak
+
+\subsubsection{dom/fxosu/FxOSUService.js}
+\lstinputlisting[language=javascript, breaklines=true]{source/FxOSUService.js}
+\pagebreak
+
+\subsubsection{dom/fxosu/FxOSUService.manifest}
+\lstinputlisting[breaklines=true]{source/FxOSUService.manifest}
+\pagebreak
+
+\subsubsection{dom/fxosu/moz.build}
+\lstinputlisting[breaklines=true]{source/dom-fxosu-moz.build}
+\pagebreak
+
+\subsubsection{dom/NetworkStatsService.jsm}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-network-NetworkStatsService.diff}
+\pagebreak
+
+\subsubsection{dom/webidl/FxOSUService.webidl}
+\lstinputlisting[language=javascript, breaklines=true]{source/FxOSUService.webidl}
+\pagebreak
+
+\subsubsection{dom/webidl/moz.build}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-webidl-moz.diff}
+\pagebreak
+
+\subsubsection{dom/moz.build}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-moz.diff}
+\pagebreak
+
+\subsubsection{mobile/android/installer/package-manifest.in}
+\lstinputlisting[language=diff, breaklines=true]{diffs/mobile-android-installer-package-manifest.diff}
+\pagebreak
 
 \section{Appendix II}
-\begin{enumerate}
-	\item Anything else you want to include. Photos, etc. 
-\end{enumerate}
+% Anything else you want to include. Photos, etc.
+\subsection{Glossary}
+\textbf{Gecko}: the layout engine developed by the Mozilla Project, originally named NGLayout. Gecko reads web content, such as HTML, CSS, XUL, JavaScript, and renders it on the user's screen. In XUL-based applications, Gecko is used to render the application's user interface as well. (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Gecko}{https://developer.mozilla.org/en-US/docs/Mozilla/Gecko})
+\\\\
+\textbf{IPC}: inter-process communication; the activity of sharing data across multiple and commonly specialized processes using communication protocols. (\href{http://en.wikipedia.org/wiki/Inter-process_communication}{http://en.wikipedia.org/wiki/Inter-process\_communication})
+\\\\
+\textbf{JSM}: a JavaScript Code module. It lets multiple privileged JavaScript scopes share code. For example, a module could be used by Firefox itself as well as by extensions, in order to avoid code duplication. (\href{https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules}{https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript\_code\_modules})
+\\\\
+\textbf{MDN}: Mozilla Developer Network (\href{https://developer.mozilla.org/en-US/}{https://developer.mozilla.org/en-US/})
+\\\\
+\textbf{Necko}: a network library that provides a platform-independent API for several layers of networking, ranging from transport to presentation layers. This API is used in many Mozilla-based client applications (including Firefox) and can be used for writing other networking clients.(\href{https://developer.mozilla.org/en-US/docs/Necko}{https://developer.mozilla.org/en-US/docs/Necko})
+\\\\
+\textbf{URI}: a uniform resource identifier is a string of characters used to identify a name of a resource. (\href{http://en.wikipedia.org/wiki/Uniform_resource_identifier}{http://en.wikipedia.org/wiki/Uniform\_resource\_identifier})
+\\\\
+\textbf{WebIDL}: a format for describing interfaces that are intended to be implemented in web browsers. (\href{http://en.wikipedia.org/wiki/Web_IDL}{http://en.wikipedia.org/wiki/Web\_IDL})
+\\\\
+\textbf{XPCOM}: a cross platform component object model, similar to Microsoft COM. It has multiple language bindings, allowing XPCOM components to be used and implemented in JavaScript, Java, and Python in addition to C++. Interfaces in XPCOM are defined in a dialect of IDL called XPIDL. (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM}{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
 
 \end{document}

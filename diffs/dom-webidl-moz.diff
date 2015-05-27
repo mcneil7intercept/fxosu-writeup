@@ -1,0 +1,21 @@
+diff --git a/dom/webidl/moz.build b/dom/webidl/moz.build
+--- a/dom/webidl/moz.build
++++ b/dom/webidl/moz.build
+@@ -147,16 +147,17 @@ WEBIDL_FILES = [
+     'FileReader.webidl',
+     'FileReaderSync.webidl',
+     'FocusEvent.webidl',
+     'FontFace.webidl',
+     'FontFaceSet.webidl',
+     'FontFaceSource.webidl',
+     'FormData.webidl',
+     'Function.webidl',
++    'FxOSUService.webidl',
+     'GainNode.webidl',
+     'Geolocation.webidl',
+     'GeometryUtils.webidl',
+     'GetUserMediaRequest.webidl',
+     'HDMIInputPort.webidl',
+     'Headers.webidl',
+     'HeapSnapshot.webidl',
+     'History.webidl',

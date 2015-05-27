@@ -1,0 +1,21 @@
+diff --git a/dom/moz.build b/dom/moz.build
+--- a/dom/moz.build
++++ b/dom/moz.build
+@@ -50,16 +50,17 @@ DIRS += [
+     'battery',
+     'browser-element',
+     'cache',
+     'canvas',
+     'cellbroadcast',
+     'contacts',
+     'crypto',
+     'phonenumberutils',
++    'fxosu',
+     'alarm',
+     'datastore',
+     'devicestorage',
+     'encoding',
+     'events',
+     'fetch',
+     'filehandle',
+     'filesystem',

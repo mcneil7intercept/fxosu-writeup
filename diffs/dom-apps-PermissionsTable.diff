@@ -1,0 +1,26 @@
+diff --git a/dom/apps/PermissionsTable.jsm b/dom/apps/PermissionsTable.jsm
+--- a/dom/apps/PermissionsTable.jsm
++++ b/dom/apps/PermissionsTable.jsm
+@@ -210,16 +210,22 @@ this.PermissionsTable =  { geolocation: 
+                              certified: ALLOW_ACTION
+                            },
+                            attention: {
+                              app: DENY_ACTION,
+                              trusted: DENY_ACTION,
+                              privileged: DENY_ACTION,
+                              certified: ALLOW_ACTION
+                            },
++                           fxosuservice: {
++                             app: DENY_ACTION,
++                             trusted: DENY_ACTION,
++                             privileged: DENY_ACTION,
++                             certified: ALLOW_ACTION
++                           },
+                            "global-clickthrough-overlay": {
+                              app: DENY_ACTION,
+                              trusted: DENY_ACTION,
+                              privileged: ALLOW_ACTION,
+                              certified: ALLOW_ACTION
+                            },
+                            "moz-attention": {
+                              app: DENY_ACTION,

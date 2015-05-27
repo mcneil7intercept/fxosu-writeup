@@ -1,0 +1,22 @@
+diff --git a/b2g/installer/package-manifest.in b/b2g/installer/package-manifest.in
+--- a/b2g/installer/package-manifest.in
++++ b/b2g/installer/package-manifest.in
+@@ -379,16 +379,18 @@
+ @RESPATH@/components/ConsoleAPI.manifest
+ @RESPATH@/components/ConsoleAPIStorage.js
+ @RESPATH@/components/BrowserElementParent.manifest
+ @RESPATH@/components/BrowserElementParent.js
+ @RESPATH@/components/ContactManager.js
+ @RESPATH@/components/ContactManager.manifest
+ @RESPATH@/components/PhoneNumberService.js
+ @RESPATH@/components/PhoneNumberService.manifest
++@RESPATH@/components/FxOSUService.js
++@RESPATH@/components/FxOSUService.manifest
+ @RESPATH@/components/NotificationStorage.js
+ @RESPATH@/components/NotificationStorage.manifest
+ @RESPATH@/components/PermissionSettings.js
+ @RESPATH@/components/PermissionSettings.manifest
+ @RESPATH@/components/PermissionPromptService.js
+ @RESPATH@/components/PermissionPromptService.manifest
+ @RESPATH@/components/AlarmsManager.js
+ @RESPATH@/components/AlarmsManager.manifest
