@@ -1,0 +1,22 @@
+diff --git a/mobile/android/installer/package-manifest.in b/mobile/android/installer/package-manifest.in
+--- a/mobile/android/installer/package-manifest.in
++++ b/mobile/android/installer/package-manifest.in
+@@ -295,16 +295,18 @@
+ @BINPATH@/components/ChromeNotifications.js
+ @BINPATH@/components/ChromeNotifications.manifest
+ @BINPATH@/components/ConsoleAPI.manifest
+ @BINPATH@/components/ConsoleAPIStorage.js
+ @BINPATH@/components/ContactManager.js
+ @BINPATH@/components/ContactManager.manifest
+ @BINPATH@/components/PhoneNumberService.js
+ @BINPATH@/components/PhoneNumberService.manifest
++@BINPATH@/components/FxOSUService.js
++@BINPATH@/components/FxOSUService.manifest
+ @BINPATH@/components/NotificationStorage.js
+ @BINPATH@/components/NotificationStorage.manifest
+ @BINPATH@/components/SettingsManager.js
+ @BINPATH@/components/SettingsManager.manifest
+ @BINPATH@/components/BrowserElementParent.manifest
+ @BINPATH@/components/BrowserElementParent.js
+ @BINPATH@/components/FeedProcessor.manifest
+ @BINPATH@/components/FeedProcessor.js
