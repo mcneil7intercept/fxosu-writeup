@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.7.2)  26 MAY 2015 04:06
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.7.2)  26 MAY 2015 00:44
 entering extended mode
 **group2_final.tex
 (K:\FxOS\fxosu-writeup\group2_final.tex
@@ -643,14 +643,7 @@ LaTeX Warning: No \author given.
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(K:\FxOS\fxosu-writeup\group2_final.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
-)
+(K:\FxOS\fxosu-writeup\group2_final.toc)
 \tf@toc=\write4
  [2]
 Underfull \hbox (badness 10000) in paragraph at lines 29--36
@@ -667,7 +660,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--36
 
  []
 
-<images/requirementsdoc.pdf, id=16, 614.295pt x 794.97pt>
+<images/requirementsdoc.pdf, id=15, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf>
@@ -678,7 +671,7 @@ File: images/requirementsdoc.pdf Graphic file (type pdf)
 Package pdftex.def Info: images/requirementsdoc.pdf used on input line 40.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
  [3] [4]
-<images/requirementsdoc.pdf, id=26, page=1, 614.295pt x 794.97pt>
+<images/requirementsdoc.pdf, id=25, page=1, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 1>
@@ -714,7 +707,7 @@ Package pdftex.def Info: images/requirementsdoc.pdf, page1 used on input line 4
 pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
->] <images/requirementsdoc.pdf, id=41, page=2, 614.295pt x 794.97pt>
+>] <images/requirementsdoc.pdf, id=40, page=2, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 2>
@@ -738,7 +731,7 @@ Package pdftex.def Info: images/requirementsdoc.pdf, page2 used on input line 4
 pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
->] <images/requirementsdoc.pdf, id=45, page=3, 614.295pt x 794.97pt>
+>] <images/requirementsdoc.pdf, id=44, page=3, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 3>
@@ -762,7 +755,7 @@ Package pdftex.def Info: images/requirementsdoc.pdf, page3 used on input line 4
 pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
->] <images/requirementsdoc.pdf, id=50, page=4, 614.295pt x 794.97pt>
+>] <images/requirementsdoc.pdf, id=49, page=4, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 4>
@@ -786,7 +779,7 @@ Package pdftex.def Info: images/requirementsdoc.pdf, page4 used on input line 4
 pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
->] <images/requirementsdoc.pdf, id=54, page=5, 614.295pt x 794.97pt>
+>] <images/requirementsdoc.pdf, id=53, page=5, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 5>
@@ -810,7 +803,7 @@ Package pdftex.def Info: images/requirementsdoc.pdf, page5 used on input line 4
 pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
->] <images/requirementsdoc.pdf, id=58, page=6, 614.295pt x 794.97pt>
+>] <images/requirementsdoc.pdf, id=57, page=6, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 6>
@@ -834,7 +827,7 @@ Package pdftex.def Info: images/requirementsdoc.pdf, page6 used on input line 4
 pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
->] <images/requirementsdoc.pdf, id=64, page=7, 614.295pt x 794.97pt>
+>] <images/requirementsdoc.pdf, id=63, page=7, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 7>
@@ -858,7 +851,7 @@ Package pdftex.def Info: images/requirementsdoc.pdf, page7 used on input line 4
 pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
->] <images/requirementsdoc.pdf, id=68, page=8, 614.295pt x 794.97pt>
+>] <images/requirementsdoc.pdf, id=67, page=8, 614.295pt x 794.97pt>
 File: images/requirementsdoc.pdf Graphic file (type pdf)
 
 <use images/requirementsdoc.pdf, page 8>
@@ -883,6 +876,13 @@ pdfTeX warning: pdflatex.exe (file K:/FxOS/fxosu-writeup/images/requirementsdoc
 .pdf): PDF inclusion: invalid other resource which is no dict (key 'ProcSets', 
 type <array>); ignored.
 >]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 52.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 52.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 52.
+
 Underfull \hbox (badness 10000) in paragraph at lines 51--85
 
  []
@@ -923,477 +923,315 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [16 <K:/FxOS/fxosu-writeup/images/finalgaant1.png> <K:/FxOS/fxosu-writeup/image
 s/finalgaant2.png>] (K:\FxOS\fxosu-writeup\blog_posts.tex
-Underfull \hbox (badness 10000) in paragraph at lines 2--5
+Underfull \hbox (badness 10000) in paragraph at lines 1--3
 
  []
 
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 6.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 6--9
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
 
 [17 <K:/FxOS/fxosu-writeup/images/finalgaant3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 18--21
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--25
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--34
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--38
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 39--41
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 44--47
+Underfull \hbox (badness 10000) in paragraph at lines 69--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--52
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 53--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--61
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 62--65
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--70
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--76
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 77--81
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 ​\item F
+               inish the preliminary design document​
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 ​\item F
+               inish the preliminary design document​
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 ​\item F
+               inish the preliminary design document​
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 ​\item F
+               inish the progress report
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 ​\item F
+               inish the progress report
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 ​\item F
+               inish the progress report
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 \item M
+            eet with Professor McGrath for end-of-term meeting
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 \item M
+            eet with Professor McGrath for end-of-term meeting
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.94 \item M
+            eet with Professor McGrath for end-of-term meeting
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.95 \end{itemize}
+                  
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--85
+! LaTeX Error: Something's wrong--perhaps a missing \item.
 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112 ​\item �
+                ��Working on the Javascript prototype
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112 ​\item �
+                ��Working on the Javascript prototype
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112 ​\item �
+                ��Working on the Javascript prototype
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113 ​\item R
+                esearch on Services Worker
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113 ​\item R
+                esearch on Services Worker
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.113 ​\item R
+                esearch on Services Worker
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 \item R
+             esearch on RequestSync​​​​
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 \item R
+             esearch on RequestSync​​​​
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 \item R
+             esearch on RequestSync​​​​
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 \end{itemize}
+                   
+? 
+
+Overfull \hbox (7.6298pt too wide) in paragraph at lines 111--115
+[]\T1/cmr/m/n/12 Plans for the next term:​ ​​-Work-ing on the Javascript 
+pro-to-type ​[]Research
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--93
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--98
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--102
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
 
 [20]
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--113
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 114--118
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--124
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 125--127
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 128--131
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--137
+Underfull \hbox (badness 10000) in paragraph at lines 160--162
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
+Underfull \hbox (badness 10000) in paragraph at lines 176--178
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--143
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--149
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--153
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--156
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--162
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--167
+Underfull \hbox (badness 10000) in paragraph at lines 192--194
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 168--171
+Underfull \hbox (badness 10000) in paragraph at lines 210--212
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--173
+Underfull \hbox (badness 10000) in paragraph at lines 226--228
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 174--177
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 178--180
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--184
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 187--190
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 194--196
+Underfull \hbox (badness 10000) in paragraph at lines 241--243
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--202
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--208
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--210
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--214
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 215--218
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--221
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--223
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--227
-
- []
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 228--232
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--236
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 239--242
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 243--246
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 247--249
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--255
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 256--258
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--261
+Underfull \hbox (badness 10000) in paragraph at lines 272--274
 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 262--263
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 264--267
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 290--292
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--270
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 271--273
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 276--279
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 280--283
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 284--286
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 289--292
-
- []
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 293--297
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 298--300
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 301--302
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 303--306
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 307--310
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 311--314
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--320
+Underfull \hbox (badness 10000) in paragraph at lines 306--308
 
  []
 
@@ -1402,53 +1240,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 321--323
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--328
-
- []
-
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 329--330
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 336--338
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--334
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--337
+Underfull \hbox (badness 10000) in paragraph at lines 369--371
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 386--388
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--340
+Underfull \hbox (badness 10000) in paragraph at lines 403--405
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
-
- []
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 343--173
-
- []
-
-<images/poster.pdf, id=127, 3468.96pt x 2601.72pt>
-File: images/poster.pdf Graphic file (type pdf)
- <use images/poster.pdf>
-Package pdftex.def Info: images/poster.pdf used on input line 177.
-(pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
+[27]) <images/poster.pdf, id=128, 3468.96pt x 2601.72pt>
 File: images/poster.pdf Graphic file (type pdf)
 
 <use images/poster.pdf>
 Package pdftex.def Info: images/poster.pdf used on input line 177.
 (pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
+File: images/poster.pdf Graphic file (type pdf)
+ <use images/poster.pdf>
+Package pdftex.def Info: images/poster.pdf used on input line 177.
+(pdftex.def)             Requested size: 3468.95158pt x 2601.71368pt.
  [28]
-<images/poster.pdf, id=133, page=1, 3468.96pt x 2601.72pt>
+<images/poster.pdf, id=134, page=1, 3468.96pt x 2601.72pt>
 File: images/poster.pdf Graphic file (type pdf)
 
 <use images/poster.pdf, page 1>
@@ -1484,24 +1312,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
 [30] [31] (K:\FxOS\fxosu-writeup\group2_final.aux) ) 
 Here is how much of TeX's memory you used:
- 18613 strings out of 493921
- 452038 string characters out of 3144880
- 624095 words of memory out of 3000000
- 21538 multiletter control sequences out of 15000+200000
+ 18630 strings out of 493921
+ 452337 string characters out of 3144880
+ 624094 words of memory out of 3000000
+ 21552 multiletter control sequences out of 15000+200000
  12689 words of font info for 33 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  63i,20n,77p,817b,609s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Ivan\AppData\Loc
-al\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Ivan\Ap
-pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\User
+al\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\Ivan\Ap
+pData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\User
 s\Ivan\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk>
  <C:\Users\Ivan\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecr
 m1200.pk> <C:\Users\Ivan\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\d
 pi600\ecrm1440.pk> <C:\Users\Ivan\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkna
-ppen\ec\dpi600\ecrm2074.pk>
-Output written on group2_final.pdf (31 pages, 9632000 bytes).
+ppen\ec\dpi600\ecrm2074.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb>
+Output written on group2_final.pdf (31 pages, 9629245 bytes).
 PDF statistics:
- 490 PDF objects out of 1000 (max. 8388607)
+ 465 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
