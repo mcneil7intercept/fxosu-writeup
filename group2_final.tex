@@ -7,6 +7,28 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
+\usepackage{listings}
+\lstdefinelanguage{diff}{
+  morecomment=[f][\color{blue}]{@@},     % group identifier
+  morecomment=[f][\color{red}]-,         % deleted lines 
+  morecomment=[f][\color{green}]+,       % added lines
+  morecomment=[f][\color{magenta}]{---}, % Diff header lines (must appear after +,-)
+  morecomment=[f][\color{magenta}]{+++},
+}
+\lstdefinelanguage{javascript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{NETWORK RELIABILITY API FOR FIREFOX OS}
@@ -212,6 +234,91 @@ There are almost 4 million lines of code in Firefox, and our project barely scra
 \end{figure}
 \pagebreak
 
+\subsection{Source Code}
+Here is a description of each of the files used in our project.
+
+\subsubsection{b2g/installer/package-manifest.in}
+This file required modification to include references to our new XPCOM component. This is necessary when compiling Firefox OS; B2G (Boot 2 Gecko) contains the core which we continually refer to as Gecko.
+
+\subsubsection{browser/installer/package-manifest.in}
+This file required modification to include references to our new XPCOM component. This is necessary when compiling Firefox Desktop.
+
+\subsubsection{dom/apps/PermissionsTable.jsm}
+This file required modification to list the specific permissions given to the XPCOM component.
+
+\subsubsection{dom/fxosu/FxOSUService.js}
+This file holds the bulk of the work that we've done in this project.
+
+\subsubsection{dom/fxosu/FxOSUService.manifest}
+This file sets the uuid for our XPCOM component, so that Gecko can handle a unique reference to the location of the component. It also sets up a name for the XPCOM component, and registers the component to be run at app startup.
+
+\subsubsection{dom/fxosu/moz.build}
+This file lists references to the files need to compile our XPCOM component, and is used by subsequent moz.build files up the directory hierarchy, when Gecko is being built.
+
+\subsubsection{dom/NetworkStatsService.jsm}
+This file required modification to handle registering network request observers, as well as handling the IPC functionality needed to shuttle messages from the parent process to a child process, and back again if necessary.
+\\\\
+We setup observers for 'http-on-modify-request' and 'http-on-examine-response' events. An 'http-on-modify-request' event is called whenever an http request is made. Among other things, this event allows you to inspect request headers and to even add or modify new and existing headers before the request is sent. An 'http-on-examine-response' event is called whenever a response has been received from the web server. Similarly to an 'http-on-modify-request' event, this event allows you to inspect response headers, and to modify existing response headers as well.
+\\\\
+Once the event observers are setup and registered, we define new cases for the NetworkStatsService.jsm process' observe function to be capable of reacting to our new events. Upon receipt of an 'http-on-modify-request' event, the observe function will grab the request URI and record the current time, storing this data in an object. This object is then broadcast asynchronously, with the name "NetworkStatsService:Request", where our FxOSUService.js child process is listening to grab the message. Upon receipt of an 'http-on-examine-response' event, the observe function will grab the content length in bytes, the time of the response, the content type, the response URI, will check if the response was a cached response by calling the isNoCacheResponse() function on the response object, and finally will check if the request succeeded by checking the requestSucceeded attribute of the response object. Just like with the 'http-on-modify-request' event, all of this data is then stored in an object, and the object is then broadcast asynchronously, with the name "NetworkStatsService:Response", where our FxOSUService.js child process is listening to grab the message.
+\\\\
+Finally, when the 'xpcom-shutdown' event is received, the observe function will remove the observers that we setup for 'http-on-modify-request' and 'http-on-examine-response' events.
+
+\subsubsection{dom/webidl/FxOSUService.webidl}
+This file handles the defining of our exposed API. In it we define the interface that will be made accessible via the navigator object available in a js application running in a web context. We define 3 objects to help with the interface we have chosen to implement; SuccessRateObject, MemoryObject, and LatencyObject. The SuccessRateObject object holds 3 floats; rate, successes, and attempted, which records the success rate from 0 to 1 of network requests, the number of successful network requests, and the total number of attempted network requests all within an arbitrary time period, respectively. The MemoryObject object holds 2 floats; explicit and resident. Explicit shows the total size of explicit memory allocations, both at the operating system level (mmap, VirtualAlloc) and at the heap level (malloc(), calloc(), operator new). And Resident shows the resident size (RSS) of physical memory used. The LatencyObject object holds 23 floats, which we'll list and describe in a bullet point list:
+
+\begin{itemize}
+  \item \textbf{navigation\_type}: THING
+  \item \textbf{navigation\_redirectCount}: THING
+  \item \textbf{prep}: THING
+  \item \textbf{redirect}: THING
+  \item \textbf{unload}: THING
+  \item \textbf{r\_to\_f}: THING
+  \item \textbf{fetch}: THING
+  \item \textbf{dnslookup}: THING
+  \item \textbf{d\_to\_c}: THING
+  \item \textbf{connection}: THING
+  \item \textbf{c\_to\_req}: THING
+  \item \textbf{request}: THING
+  \item \textbf{response}: THING
+  \item \textbf{res\_to\_dom}: THING
+  \item \textbf{domLoading}: THING
+  \item \textbf{domInteractive}: THING
+  \item \textbf{domContentLoaded}: THING
+  \item \textbf{domComplete}: THING
+  \item \textbf{dom\_to\_onload}: THING
+  \item \textbf{loadEvent}: THING
+  \item \textbf{networkLatency}: THING
+  \item \textbf{pageLoadingTime}: THING
+  \item \textbf{totalTimeElapsed}: THING
+\end{itemize}
+
+Finally, the WebIDL sets up 12 API functions that can be called from a web context, attached to navigator:
+\begin{itemize}
+  \item \textbf{boolean batteryLevel()}: THING
+  \item \textbf{boolean batteryCharging()}: THING
+  \item \textbf{DOMRequest recentRxTx()}: THING
+  \item \textbf{float receivedBytes(optional float lastMillisecs)}: THING
+  \item \textbf{SuccessRateObject successRate(optional float lastMillisecs)}: THING
+  \item \textbf{LatencyObject latencyInfo()}: THING
+  \item \textbf{boolean isConnectionStable(optional float lastMillisecs)}: THING
+  \item \textbf{MemoryObject memoryManager();}: THING
+  \item \textbf{float connectionType()}: THING
+  \item \textbf{boolean connectionUp()}: THING
+  \item \textbf{float connectionQuality()}: THING
+  \item \textbf{boolean mozIsNowGood(optional float level)}: THING
+\end{itemize}
+
+\subsubsection{dom/webidl/moz.build}
+This file lists references to the WebIDL files need to compile all API interfaces used in Firefox, and is used by subsequent moz.build files up the directory hierarchy, when Gecko is being built.
+
+\subsubsection{dom/moz.build}
+This file lists references to interfaces and the directory names of all XPCOM components stored in the dom/ directory, and is used by subsequent moz.build files up the directory hierarchy, when Gecko is being built.
+
+\subsubsection{mobile/android/installer/package-manifest.in}
+This file required modification to include references to our new XPCOM component. This is necessary when compiling Firefox for Android.
+\pagebreak
+
 \subsection{Building/Running from Source}
 
 \subsection{API Documentation}
@@ -229,6 +336,13 @@ There were a number of websites that were helpful during the course of researchi
 	\item Boot2Gecko Mailing List (\href{https://groups.google.com/forum/\#!forum/mozilla.dev.b2g}{https://groups.google.com/forum/\#!forum/mozilla.dev.b2g})
 	\item Gaia Mailing List (\href{https://groups.google.com/forum/\#!forum/mozilla.dev.gaia}{https://groups.google.com/forum/\#!forum/mozilla.dev.gaia})
 	\item StackOverflow (\href{http://stackoverflow.com/}{http://stackoverflow.com/})
+\end{enumerate}
+
+And here are a list of webpages, within these websites that we found most useful, organized from most to least helpful:
+\begin{enumerate}
+	\item MDN XPCOM Interface Reference (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface}{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface})
+	\item MDN Observer Notifications (\href{https://developer.mozilla.org/en-US/docs/Observer_Notifications}{https://developer.mozilla.org/en-US/docs/Observer\_Notifications})
+	\item MDN XPCOM Reference for nsIMemoryReporterManager (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMemoryReporterManager}{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMemoryReporterManager})
 \end{enumerate}
 
 \noindent Other resources that we found really helpful included:
@@ -291,10 +405,79 @@ If I could do it all over again, I would spend significantly more time researchi
 
 \section{Appendix I}
 % Essential Code Listings. You don't have to include absolutely everything, but if someone wants to understand your project, there should be enough here to learn from. If you worked within a larger project, something like a patch file might be a good way to go.
-Code
+\subsection{Source Code}
+
+\subsubsection{b2g/installer/package-manifest.in}
+\lstinputlisting[language=diff, breaklines=true]{diffs/b2g-installer-package-manifest.diff}
+\pagebreak
+
+\subsubsection{browser/installer/package-manifest.in}
+\lstinputlisting[language=diff, breaklines=true]{diffs/browser-installer-package-manifest.diff}
+\pagebreak
+
+\subsubsection{dom/apps/PermissionsTable.jsm}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-apps-PermissionsTable.diff}
+\pagebreak
+
+\subsubsection{dom/fxosu/FxOSUService.js}
+\lstinputlisting[language=javascript, breaklines=true]{source/FxOSUService.js}
+\pagebreak
+
+\subsubsection{dom/fxosu/FxOSUService.manifest}
+\lstinputlisting[breaklines=true]{source/FxOSUService.manifest}
+\pagebreak
+
+\subsubsection{dom/fxosu/moz.build}
+\lstinputlisting[breaklines=true]{source/dom-fxosu-moz.build}
+\pagebreak
+
+\subsubsection{dom/NetworkStatsService.jsm}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-network-NetworkStatsService.diff}
+\pagebreak
+
+\subsubsection{dom/webidl/FxOSUService.webidl}
+\lstinputlisting[language=javascript, breaklines=true]{source/FxOSUService.webidl}
+\pagebreak
+
+\subsubsection{dom/webidl/moz.build}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-webidl-moz.diff}
+\pagebreak
+
+\subsubsection{dom/moz.build}
+\lstinputlisting[language=diff, breaklines=true]{diffs/dom-moz.diff}
+\pagebreak
+
+\subsubsection{mobile/android/installer/package-manifest.in}
+\lstinputlisting[language=diff, breaklines=true]{diffs/mobile-android-installer-package-manifest.diff}
 \pagebreak
 
 \section{Appendix II}
 % Anything else you want to include. Photos, etc.
+\subsection{Glossary}
+\textbf{Gecko}: the layout engine developed by the Mozilla Project, originally named NGLayout. Gecko reads web content, such as HTML, CSS, XUL, JavaScript, and renders it on the user's screen. In XUL-based applications, Gecko is used to render the application's user interface as well. (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Gecko}{https://developer.mozilla.org/en-US/docs/Mozilla/Gecko})
+\\\\
+\textbf{IPC}: inter-process communication; the activity of sharing data across multiple and commonly specialized processes using communication protocols. (\href{http://en.wikipedia.org/wiki/Inter-process_communication}{http://en.wikipedia.org/wiki/Inter-process\_communication})
+\\\\
+\textbf{JSM}: a JavaScript Code module. It lets multiple privileged JavaScript scopes share code. For example, a module could be used by Firefox itself as well as by extensions, in order to avoid code duplication. (\href{https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules}{https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript\_code\_modules})
+\\\\
+\textbf{MDN}: Mozilla Developer Network (\href{https://developer.mozilla.org/en-US/}{https://developer.mozilla.org/en-US/})
+\\\\
+\textbf{Necko}: a network library that provides a platform-independent API for several layers of networking, ranging from transport to presentation layers. This API is used in many Mozilla-based client applications (including Firefox) and can be used for writing other networking clients.(\href{https://developer.mozilla.org/en-US/docs/Necko}{https://developer.mozilla.org/en-US/docs/Necko})
+\\\\
+\textbf{URI}: a uniform resource identifier is a string of characters used to identify a name of a resource. (\href{http://en.wikipedia.org/wiki/Uniform_resource_identifier}{http://en.wikipedia.org/wiki/Uniform\_resource\_identifier})
+\\\\
+\textbf{WebIDL}: a format for describing interfaces that are intended to be implemented in web browsers. (\href{http://en.wikipedia.org/wiki/Web_IDL}{http://en.wikipedia.org/wiki/Web\_IDL})
+\\\\
+\textbf{XPCOM}: a cross platform component object model, similar to Microsoft COM. It has multiple language bindings, allowing XPCOM components to be used and implemented in JavaScript, Java, and Python in addition to C++. Interfaces in XPCOM are defined in a dialect of IDL called XPIDL. (\href{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM}{https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
+\\\\
+\textbf{}: (\href{}{})
 
 \end{document}
