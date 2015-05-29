@@ -268,29 +268,29 @@ Finally, when the 'xpcom-shutdown' event is received, the observe function will 
 This file handles the defining of our exposed API. In it we define the interface that will be made accessible via the navigator object available in a js application running in a web context. We define 3 objects to help with the interface we have chosen to implement; SuccessRateObject, MemoryObject, and LatencyObject. The SuccessRateObject object holds 3 floats; rate, successes, and attempted, which records the success rate from 0 to 1 of network requests, the number of successful network requests, and the total number of attempted network requests all within an arbitrary time period, respectively. The MemoryObject object holds 2 floats; explicit and resident. Explicit shows the total size of explicit memory allocations, both at the operating system level (mmap, VirtualAlloc) and at the heap level (malloc(), calloc(), operator new). And Resident shows the resident size (RSS) of physical memory used. The LatencyObject object holds 23 floats, which we'll list and describe in a bullet point list:
 
 \begin{itemize}
-  \item \textbf{navigation\_type}: THING
-  \item \textbf{navigation\_redirectCount}: THING
-  \item \textbf{prep}: THING
-  \item \textbf{redirect}: THING
-  \item \textbf{unload}: THING
-  \item \textbf{r\_to\_f}: THING
-  \item \textbf{fetch}: THING
-  \item \textbf{dnslookup}: THING
-  \item \textbf{d\_to\_c}: THING
-  \item \textbf{connection}: THING
-  \item \textbf{c\_to\_req}: THING
-  \item \textbf{request}: THING
-  \item \textbf{response}: THING
-  \item \textbf{res\_to\_dom}: THING
-  \item \textbf{domLoading}: THING
-  \item \textbf{domInteractive}: THING
-  \item \textbf{domContentLoaded}: THING
-  \item \textbf{domComplete}: THING
-  \item \textbf{dom\_to\_onload}: THING
-  \item \textbf{loadEvent}: THING
-  \item \textbf{networkLatency}: THING
-  \item \textbf{pageLoadingTime}: THING
-  \item \textbf{totalTimeElapsed}: THING
+  \item \textbf{navigation\_type}: the type of last non-redirect navigation
+  \item \textbf{navigation\_redirectCount}: number of redirects since the last non-redirect navigation
+  \item \textbf{prep}: the time taken from the first HTTP redirect starts to the prompt for unload the previous document
+  \item \textbf{redirect}: the time taken for the last HTTP redirect
+  \item \textbf{unload}: the time taken to complete the load event of the previous document
+  \item \textbf{r\_to\_f}: the time taken from the start of resources fetching to the end of last HTTP redirect
+  \item \textbf{fetch}: the time taken from the end of resources fetching to the start of domain name lookup
+  \item \textbf{dnslookup}: the time taken to finish domain name lookup
+  \item \textbf{d\_to\_c}: the time taken from the end of domain name lookup to the start of server connection
+  \item \textbf{connection}: the time taken to establish connection to the server to retrieve the document 
+  \item \textbf{c\_to\_req}: the time taken from finished connecting to the server to start requesting document from the server
+  \item \textbf{request}: the time taken from the start of document request to the time when the user agent received the first byte of the response from the server
+  \item \textbf{response}: the time taken from the user agent received the first byte of the response to the time the user agent received the last byte of the response from the server
+  \item \textbf{res\_to\_dom}: the time taken from the user agent to receive the last byte of the response from the server to the time when user agent starts parsing the HTML document
+  \item \textbf{domLoading}: the time taken for the user agent to finish parsing all the HTML document
+  \item \textbf{domInteractive}: the time taken from the HTML document parsing finished to the time when script parsing starts
+  \item \textbf{domContentLoaded}: the time taken for the user agent to finish parsing all the script
+  \item \textbf{domComplete}: the time taken from the script parsing finished to the time when all the resources finished loading
+  \item \textbf{dom\_to\_onload}: the time taken from all the resources finished loading to the time when load event starts
+  \item \textbf{loadEvent}: the time taken to complete the load event of the current document
+  \item \textbf{networkLatency}: the time taken from the start of resources fetching to the end of receiving data from the server
+  \item \textbf{pageLoadingTime}: the time taken from the end of receiving data from the server to the end of loading the document
+  \item \textbf{totalTimeElapsed}: the total time taken for the user agent to request and load the resources from the server
 \end{itemize}
 
 Finally, the WebIDL sets up 12 API functions that can be called from a web context, attached to navigator:

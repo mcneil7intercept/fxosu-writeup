@@ -1,0 +1,48 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Requirements Document}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Original}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Revisions}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Requirements}{subsection.2.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Gaant Chart}{subsection.2.2}% 6
+\BOOKMARK [1][-]{section.3}{Weekly Team Blog Posts}{}% 7
+\BOOKMARK [2][-]{subsection.3.1}{Fall 2014}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.2}{Winter 2015}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.3}{Spring 2015}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Project Poster}{}% 11
+\BOOKMARK [1][-]{section.5}{Project Documentation}{}% 12
+\BOOKMARK [2][-]{subsection.5.1}{Overview}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Structure}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.3}{Source Code}{section.5}% 15
+\BOOKMARK [3][-]{subsubsection.5.3.1}{b2g/installer/package-manifest.in}{subsection.5.3}% 16
+\BOOKMARK [3][-]{subsubsection.5.3.2}{browser/installer/package-manifest.in}{subsection.5.3}% 17
+\BOOKMARK [3][-]{subsubsection.5.3.3}{dom/apps/PermissionsTable.jsm}{subsection.5.3}% 18
+\BOOKMARK [3][-]{subsubsection.5.3.4}{dom/fxosu/FxOSUService.js}{subsection.5.3}% 19
+\BOOKMARK [3][-]{subsubsection.5.3.5}{dom/fxosu/FxOSUService.manifest}{subsection.5.3}% 20
+\BOOKMARK [3][-]{subsubsection.5.3.6}{dom/fxosu/moz.build}{subsection.5.3}% 21
+\BOOKMARK [3][-]{subsubsection.5.3.7}{dom/NetworkStatsService.jsm}{subsection.5.3}% 22
+\BOOKMARK [3][-]{subsubsection.5.3.8}{dom/webidl/FxOSUService.webidl}{subsection.5.3}% 23
+\BOOKMARK [3][-]{subsubsection.5.3.9}{dom/webidl/moz.build}{subsection.5.3}% 24
+\BOOKMARK [3][-]{subsubsection.5.3.10}{dom/moz.build}{subsection.5.3}% 25
+\BOOKMARK [3][-]{subsubsection.5.3.11}{mobile/android/installer/package-manifest.in}{subsection.5.3}% 26
+\BOOKMARK [2][-]{subsection.5.4}{Building/Running from Source}{section.5}% 27
+\BOOKMARK [2][-]{subsection.5.5}{API Documentation}{section.5}% 28
+\BOOKMARK [1][-]{section.6}{Learning New Technology}{}% 29
+\BOOKMARK [1][-]{section.7}{What did we learn from all of this?}{}% 30
+\BOOKMARK [2][-]{subsection.7.1}{John Zeller}{section.7}% 31
+\BOOKMARK [2][-]{subsection.7.2}{Pok Yan Tjiam}{section.7}% 32
+\BOOKMARK [2][-]{subsection.7.3}{Jonathan McNeil}{section.7}% 33
+\BOOKMARK [1][-]{section.8}{Appendix I}{}% 34
+\BOOKMARK [2][-]{subsection.8.1}{Source Code}{section.8}% 35
+\BOOKMARK [3][-]{subsubsection.8.1.1}{b2g/installer/package-manifest.in}{subsection.8.1}% 36
+\BOOKMARK [3][-]{subsubsection.8.1.2}{browser/installer/package-manifest.in}{subsection.8.1}% 37
+\BOOKMARK [3][-]{subsubsection.8.1.3}{dom/apps/PermissionsTable.jsm}{subsection.8.1}% 38
+\BOOKMARK [3][-]{subsubsection.8.1.4}{dom/fxosu/FxOSUService.js}{subsection.8.1}% 39
+\BOOKMARK [3][-]{subsubsection.8.1.5}{dom/fxosu/FxOSUService.manifest}{subsection.8.1}% 40
+\BOOKMARK [3][-]{subsubsection.8.1.6}{dom/fxosu/moz.build}{subsection.8.1}% 41
+\BOOKMARK [3][-]{subsubsection.8.1.7}{dom/NetworkStatsService.jsm}{subsection.8.1}% 42
+\BOOKMARK [3][-]{subsubsection.8.1.8}{dom/webidl/FxOSUService.webidl}{subsection.8.1}% 43
+\BOOKMARK [3][-]{subsubsection.8.1.9}{dom/webidl/moz.build}{subsection.8.1}% 44
+\BOOKMARK [3][-]{subsubsection.8.1.10}{dom/moz.build}{subsection.8.1}% 45
+\BOOKMARK [3][-]{subsubsection.8.1.11}{mobile/android/installer/package-manifest.in}{subsection.8.1}% 46
+\BOOKMARK [1][-]{section.9}{Appendix II}{}% 47
+\BOOKMARK [2][-]{subsection.9.1}{Glossary}{section.9}% 48
